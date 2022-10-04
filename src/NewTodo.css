@@ -1,0 +1,7 @@
+.NewTodo{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin: 1rem 0;
+}
