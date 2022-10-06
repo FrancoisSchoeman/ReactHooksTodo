@@ -10,10 +10,14 @@ import { TextField } from '@mui/material';
 
 export default function Todo(props) {
     const [isEditing, setIsEditing] = useState(false);
-    const [currentTodoValue, setCurrentTodoValue] = useState(props.todo.todo)
+    const [currentTodoValue, setCurrentTodoValue] = useState(props.todo.todo);
+
+    const editTodo = () => {
+        props.editTodo(props.todo, currentTodoValue);
+    }
     return (
         <div className='Todo'>
-            {isEditing ? <TextField sx={{ width: "95%" }} onChange={(evt) => {setCurrentTodoValue(evt.target.value)}} value={currentTodoValue} variant="standard" /> : 
+            {isEditing ? <form onSubmit={editTodo}><TextField sx={{ width: "95%" }} onChange={(evt) => {setCurrentTodoValue(evt.target.value)}} value={currentTodoValue} variant="standard" /></form> : 
             <div className='Todo-main'>
             <div className='Todo-left'>
                 <Checkbox onClick={() => { props.toggleTodo(props.todo) }} checked={props.todo.isChecked} />

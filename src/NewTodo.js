@@ -10,7 +10,8 @@ export default function NewTodo(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        props.addTodo({todo: newTodo, isChecked: false})
+        props.addTodo({todo: newTodo, isChecked: false});
+        setNewTodo("");
     }
     return (
         <div className='NewTodo'>
